@@ -1,3 +1,6 @@
+import 'package:assignment/customWidget/customButton.dart';
+import 'package:assignment/customWidget/customTextButton.dart';
+import 'package:assignment/customWidget/paddingExtension.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -58,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 //left side screen
                 if (screenWidth > 600) _buildLeftSide(screenWidth),
+
                 // right side of screen
                 Expanded(
                   flex: 1,
@@ -77,10 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               width: screenWidth * 0.001,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: Image.asset('assets/DEMO.png'),
-                            )
+                            Image.asset('assets/DEMO.png').padOnly(bottom: 10)
                           ],
                         ),
                         SizedBox(
@@ -187,65 +188,46 @@ class _LoginPageState extends State<LoginPage> {
                                         ),
                                       ),
                                       const SizedBox(height: 20),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        onTap: () {},
-                                        child: Container(
-                                          width: 450,
-                                          height: 48,
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 16, vertical: 6),
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: ShapeDecoration(
-                                            gradient: const LinearGradient(
-                                              begin: Alignment(0.00, 1.00),
-                                              end: Alignment(0, -1),
-                                              colors: [
-                                                Color(0xFF35A7D7),
-                                                Color(0xFF445A82)
-                                              ],
-                                            ),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(30),
-                                            ),
-                                          ),
-                                          child: const Center(
-                                            child: Text(
-                                              'LOGIN',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 16,
-                                                fontFamily: 'Public Sans',
-                                                fontWeight: FontWeight.w600,
-                                                height: 0.09,
-                                                letterSpacing: 0.40,
-                                              ),
-                                            ),
-                                          ),
+
+                                      //LogIn button
+                                      CustomButtonChe(
+                                        onPressed: () {},
+                                        bHeight: 52,
+                                        color1: const Color(0xFF35A7D7),
+                                        color2: const Color(0xFF445A82),
+                                        text: 'LOGIN',
+                                        textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: screenHeight * 0.02,
+                                          fontFamily: 'Public Sans',
+                                          fontWeight: FontWeight.w600,
+                                          height: 0.09,
+                                          letterSpacing: 0.40,
                                         ),
                                       ),
                                       const SizedBox(height: 20),
-                                      TextButton(
+
+                                      //forgotPassword button
+                                      CustomTextButton(
                                         onPressed: () {},
-                                        child: Text(
-                                          'Forgot Password?',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: const Color(0xFF445D7F),
-                                            fontSize: screenWidth * 0.01,
-                                            fontFamily: 'Public Sans',
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 0.15,
-                                          ),
+                                        text: 'Forgot Password?',
+                                        textStyle: TextStyle(
+                                          color: const Color(0xFF445D7F),
+                                          fontSize: screenHeight * 0.02,
+                                          fontFamily: 'Public Sans',
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: 0.15,
                                         ),
-                                      ),
+                                      )
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                           ),
+                        ),
+                        const SizedBox(
+                          height: 20,
                         ),
                         Center(
                           child: Text(
